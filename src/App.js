@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import TransContainer from "./components/TransContainer";
 import SearchBar from "./components/SearchBar";
+
 import "./App.css"
 
 
@@ -28,7 +29,6 @@ const filteredTrans = trans.filter(tran=>
         {/* HELLO from APP */}
         <SearchBar search= {search} setSearch={setSearch}/>
         <TransContainer trans={trans} setTrans={setTrans}  filteredTrans= {filteredTrans}/>
-
       </div>
     </div>
   );

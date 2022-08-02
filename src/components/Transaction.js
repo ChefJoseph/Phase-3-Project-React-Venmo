@@ -1,5 +1,6 @@
 
 import React, {useState, useEffect} from "react";
+import LikeButton from "./LikeButton";
 
 function Transaction ({tran}) {
   
@@ -50,7 +51,7 @@ function Transaction ({tran}) {
       </div>
     </div>
     <div className="transaction__likes">
-     Like Button 
+     <LikeButton/>
     </div>
     &nbsp;
     </div>
