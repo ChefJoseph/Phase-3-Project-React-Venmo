@@ -1,8 +1,7 @@
-import React, {useState,useEffect} from "react";
-import TransContainer from "./TransContainer";
-// import NewPoemForm from "./NewPoemForm";
-// import ShowHideButton from "./ShowHideButton";
-import { useEffect } from "react/cjs/react.production.min";
+import React, {useState, useEffect} from "react";
+import TransContainer from "./components/TransContainer";
+import Feed from "./components/Feed"
+
 
 function App() {
   const [trans, setTrans] = useState([])
@@ -25,7 +24,9 @@ function App() {
   return (
     <div className="app">
       <div>
+        HELLO from APP
         <TransContainer trans={trans} setTrans = {setTrans}/>
+        <Feed />
       </div>
     </div>
   );

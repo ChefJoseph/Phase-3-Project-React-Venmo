@@ -1,4 +1,4 @@
-import userEvent from "@testing-library/user-event";
+
 import React from "react";
 
 function Transaction ({sender, receiver, amount, description, profile_pic, date_time}) {
@@ -10,7 +10,7 @@ function Transaction ({sender, receiver, amount, description, profile_pic, date_
 
       <div className="transaction__icon">
         <img
-          src={receiver.profile_pic}
+          src=
           alt={"profile-pic"}
           className={`smooth-image`}
         />
@@ -21,9 +21,9 @@ function Transaction ({sender, receiver, amount, description, profile_pic, date_
         <div className="transaction__names-amount">
 
           <div className="transaction__names">
-            <span className="transaction__pay-name">{sender.name}</span>
+            <span className="transaction__pay-name">{amount}</span>
             <span className="transaction__paid"> paid </span>
-            <span className="transaction__pay-name">{receiver.name}</span>
+            <span className="transaction__pay-name">receiver</span>
           </div>
         </div>
 
@@ -33,12 +33,6 @@ function Transaction ({sender, receiver, amount, description, profile_pic, date_
 
         <div className="transaction__message">{description}</div>
       </div>
-
-      {receiver.id === user.id
-        ? <div className="transaction__amount">$<NumberFormat value={amount} displayType={'text'} decimalScale={2} fixedDecimalScale={true} /></div>
-        : sender.id === user.id &&
-          <div className="transaction__amount payee">-$<NumberFormat value={amount} displayType={'text'} decimalScale={2} fixedDecimalScale={true} /></div>
-      }
     </div>
     <div className="transaction__likes">
      Like Button
