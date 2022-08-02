@@ -6,7 +6,8 @@ function TransContainer({trans, setTrans}) {
 
   return (
     <div className="Trans-container">
-    {trans.map(trans => <Transaction {...trans} key={trans.id} setTrans = {setTrans} />)}
+      Hello from TransContainer
+    {trans.map(tran => <Transaction tran = {tran} key={tran.id} setTrans = {setTrans} />)}
     </div>
   );
 }

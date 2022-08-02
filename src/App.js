@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import TransContainer from "./components/TransContainer";
-import Feed from "./components/Feed"
+
 
 
 function App() {
@@ -25,8 +25,8 @@ function App() {
     <div className="app">
       <div>
         HELLO from APP
-        <TransContainer trans={trans} setTrans = {setTrans}/>
-        <Feed />
+        <TransContainer trans={trans} setTrans={setTrans}/>
+      
       </div>
     </div>
   );
