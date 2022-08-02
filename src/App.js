@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import TransContainer from "./components/TransContainer";
-
+import "./App.css"
 
 
 function App() {
