@@ -2,9 +2,11 @@ import React, {useState, useEffect} from "react";
 import TransContainer from "./components/TransContainer";
 // import SearchBar from "./components/SearchBar";
 import Profile from "./components/Profile";
-// import {Route, Routes} from "react-router-dom"
-import Header from "./components/Header";
+import {Route, Routes} from "react-router-dom"
+import NavBar from "./components/NavBar";
 import "./index.css"
+import Login from "./components/Login";
+import Home from "./pages/Home";
 
 
 function App() {
@@ -26,11 +28,15 @@ const filteredTrans = trans.filter(tran=>
 )  
   
   return (
-    <div className="app">
-      <div className="app-container">
-        <Header />
+    <div >
+      <div >
+        <Login/>
+        <NavBar />
         <TransContainer search= {search} setSearch={setSearch} trans={trans} setTrans={setTrans}  filteredTrans= {filteredTrans}/>
         <Profile/>
+        <Routes>
+          <Route exact path="/" element ={<Home/>}/>
+        </Routes>
       </div>
     </div>
   );
