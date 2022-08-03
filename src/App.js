@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from "react";
 import TransContainer from "./components/TransContainer";
-import SearchBar from "./components/SearchBar";
-
-import "./App.css"
+// import SearchBar from "./components/SearchBar";
+import Profile from "./components/Profile";
+// import {Route, Routes} from "react-router-dom"
+import Header from "./components/Header";
+import "./index.css"
 
 
 function App() {
@@ -25,10 +27,10 @@ const filteredTrans = trans.filter(tran=>
   
   return (
     <div className="app">
-      <div>
-        {/* HELLO from APP */}
-        <SearchBar search= {search} setSearch={setSearch}/>
-        <TransContainer trans={trans} setTrans={setTrans}  filteredTrans= {filteredTrans}/>
+      <div className="app-container">
+        <Header />
+        <TransContainer search= {search} setSearch={setSearch} trans={trans} setTrans={setTrans}  filteredTrans= {filteredTrans}/>
+        <Profile/>
       </div>
     </div>
   );

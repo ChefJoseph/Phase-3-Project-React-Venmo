@@ -1,13 +1,15 @@
 import React from "react";
 import Transaction from "./Transaction";
+import SearchBar from "./SearchBar";
 
-function TransContainer({trans, setTrans, filteredTrans}) {
+function TransContainer({trans, setTrans, filteredTrans, search, setSearch}) {
   
 
   return (
-    <div className="Trans-container">
-      {/* Hello from TransContainer */}
+    <div className="trans_container">
+     <SearchBar search= {search} setSearch={setSearch}/>
     {filteredTrans.map(tran => <Transaction tran = {tran} key={tran.id} setTrans = {setTrans} />)}
+    
     </div>
   );
 }

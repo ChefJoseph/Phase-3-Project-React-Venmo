@@ -9,8 +9,8 @@ function LikeButton() {
     }
  
     return (
-        <button onClick = {handleClickLike}>{like? "Unlike": "Like"}
- </button>
+        <span onClick = {handleClickLike}>{like? "❤️": "🤍"}
+ </span>
     )
     
     }
