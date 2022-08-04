@@ -70,6 +70,9 @@ function Transaction ({tran}) {
     <div className="transaction__likes">
     <LikeButton tran = {tran}/>
     </div>
+    <div className = "comment feed">
+      
+    </div>
     <form className="transaction_comments" >
                     <input 
                         placeholder="Type your comment here." 
