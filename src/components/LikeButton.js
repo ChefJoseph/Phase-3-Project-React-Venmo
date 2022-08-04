@@ -5,7 +5,7 @@ function LikeButton({tran}) {
    
     function addLike (e){
         e.preventDefault()
-        fetch('http://localhost:9292/transactions/${:id}', {
+        fetch(`http://localhost:9292/transactions/${tran.id}`, {
           method: "PATCH",
           headers: {"Content-Type": "application/json",
           },
@@ -14,7 +14,7 @@ function LikeButton({tran}) {
           })
         })
         .then(res=> res.json())
-        .then(data => console.log(data))
+        .then(data => setLike(data.like))
     
       }
 
