@@ -27,12 +27,19 @@ const filteredTrans = trans.filter(tran=>
   // tran.receiver.name.toLowerCase().includes(search.toLowerCase())
 )  
   
+
+function handleFire(tran) {
+  // console.log(bill)
+  setTrans(trans.filter(t=> t.id !== tran.id))
+}
+
+
   return (
     <div >
       <div >
         {/* <Login/> */}
         <NavBar />
-        <TransContainer search= {search} setSearch={setSearch} trans={trans} setTrans={setTrans}  filteredTrans= {filteredTrans}/>
+        <TransContainer search= {search} setSearch={setSearch} trans={trans} setTrans={setTrans}  filteredTrans= {filteredTrans} handleFire={handleFire}/>
         <Profile trans={trans}/>
         <Routes>
           <Route exact path="/" element ={<Home/>}/>

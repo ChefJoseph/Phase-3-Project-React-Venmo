@@ -1,20 +1,8 @@
 import React, {useState, useEffect} from "react";
 import LikeButton from "./LikeButton";
 
-function Transaction ({tran}) {
+function Transaction ({tran, handleFire}) {
   
-   const [sender, setSender] = useState([])
-   const [receiver, setReceiver] = useState ([])
-  useEffect (()=> {
-    fetch('http://localhost:9292/transaction_sender')
-    .then (res => res.json())
-    .then(data => setSender(data))
-  },[])
-  useEffect (()=> {
-    fetch('http://localhost:9292/transaction_receiver')
-    .then (res => res.json())
-    .then(data => setReceiver(data))
-  },[])
 
   const [comments, setComments] = useState("")
 
@@ -33,6 +21,21 @@ function Transaction ({tran}) {
     setComments("")
 
   }
+
+  function handleDelete (e) {
+    e.preventDefault()
+    fetch('http://localhost:9292/transactions/${id}', {
+      method: "DELETE",
+      headers: {"Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+      
+      })
+    })
+    .then(res=> res.json())
+    .then(data=> (console.log(data)))
+  }
+
 
   return (
     
@@ -84,7 +87,14 @@ function Transaction ({tran}) {
                     />
       <input type="submit" value="Comment" onSubmit = {handleSubmitForm} ></input>
     </form>
-
+      <button onClick={(e) => {
+                  e.stopPropagation()
+                  e.preventDefault()
+                  handleFire(tran)
+      }}
+      >
+      Delete
+      </button>
     </div>
     
 );
