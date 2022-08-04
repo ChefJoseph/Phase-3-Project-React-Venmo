@@ -30,10 +30,10 @@ const filteredTrans = trans.filter(tran=>
   return (
     <div >
       <div >
-        <Login/>
+        {/* <Login/> */}
         <NavBar />
         <TransContainer search= {search} setSearch={setSearch} trans={trans} setTrans={setTrans}  filteredTrans= {filteredTrans}/>
-        <Profile/>
+        <Profile trans={trans}/>
         <Routes>
           <Route exact path="/" element ={<Home/>}/>
         </Routes>

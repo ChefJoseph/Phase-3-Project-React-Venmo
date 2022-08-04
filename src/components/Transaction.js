@@ -16,7 +16,23 @@ function Transaction ({tran}) {
     .then(data => setReceiver(data))
   },[])
 
- 
+  const [comments, setComments] = useState("")
+
+  function handleSubmitForm (e){
+    e.preventDefault()
+    fetch('http://localhost:9292/transactions/${id}', {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+      comments: comments,
+      })
+    })
+    .then(res=> res.json())
+    .then(data=> (console.log(data)))
+    setComments("")
+
+  }
 
   return (
     
@@ -26,7 +42,7 @@ function Transaction ({tran}) {
   
       <div className="transaction__icon">
         <img
-          src={sender.profile_pic}
+          src={tran.sender.profile_pic}
           alt={"profile_pic"}
           className="smooth-image"
         />
@@ -37,28 +53,35 @@ function Transaction ({tran}) {
         <div className="transaction__names-amount">
        
           <div className="transaction__names">
-            <span className="transaction__pay-name">{sender.name}</span>
+            <span className="transaction__pay-name">{tran.sender.name}</span>
             <span className="transaction__paid"> paid </span>
-            <span className="transaction__pay-name">{receiver.name}</span>
+            <span className="transaction__pay-name">{tran.receiver.name}</span>
             <span> ${tran.amount} </span>
           </div>           
         </div>
         
         <div className="transaction__details-date">
-          <div className="transaction__date">timestamp{tran.date_time}&nbsp;</div>
+          <div className="transaction__date">timestamp{tran.date_time}</div>
         </div>
 
-        <div className="transaction__message">{tran.description}&nbsp;</div>
+        <div className="transaction__message">{tran.description}</div>
       </div>
     </div>
     <div className="transaction__likes">
-    <LikeButton/>
+    <LikeButton tran = {tran}/>
     </div>
     <form className="transaction_comments" >
-    <textarea className="comment" placeholder="Type your comment here." ></textarea>
-      <input type="submit" value="Comment" ></input>
+                    <input 
+                        placeholder="Type your comment here." 
+                        value={comments}
+                        onChange = {e=> setComments(e.target.value)}
+                        size="20"
+                        // height="10"
+                        className="comment"
+                    />
+      <input type="submit" value="Comment" onSubmit = {handleSubmitForm} ></input>
     </form>
-    &nbsp;
+
     </div>
     
 );

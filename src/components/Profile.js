@@ -16,17 +16,16 @@ function Profile() {
     const [sendName, setSendName] = useState("")
     const [description, setDescription] = useState("")
     
-    const sendNameID = sendName.id 
 
     function handleSubmitForm (e){
         e.preventDefault()
-        fetch('http://localhost:9292//transactions', {
+        fetch('http://localhost:9292/transactions', {
           method: "POST",
           headers: {"Content-Type": "application/json",
           },
           body: JSON.stringify({
           sender_id: 1,
-          receiver_id: sendNameID,
+          receiver_id: sendName,
           amount: amount,
           description: description,
           })
@@ -41,7 +40,7 @@ function Profile() {
             <div className="profile_container">
                 <div className="profile_image_name">
                     <div><img className="profile_image" src={elmo.profile_pic} alt="" /></div>
-                    <div className="profile_username">{elmo.name}</div>
+                    <div className="profile_username">{elmo.name}</div><div className="profile_username">{elmo.handle}</div>
                 </div>
                 <div className="profile_value profile_balance_info"><div className="profile_balance">${elmo.balance}</div><span className="profile_flatmo"> in Flatmo</span></div>
                 <div className="profile_value"></div>
@@ -76,7 +75,6 @@ function Profile() {
                     />
                 </form>
             </div>
-
     );
 }
 export default Profile;
