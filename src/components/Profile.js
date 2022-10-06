@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 function Profile() {
     const [elmo, setElmo] = useState("")
     useEffect (()=> {
-        fetch('http://localhost:9292/users')
+        fetch('http://54.210.161.80:9292/users')
         .then(res => res.json())
         .then(data => setElmo(data))
       },[])
@@ -19,7 +19,7 @@ function Profile() {
 
     function handleSubmitForm (e){
         e.preventDefault()
-        fetch('http://localhost:9292/transactions', {
+        fetch('http://54.210.161.80:9292/transactions', {
           method: "POST",
           headers: {"Content-Type": "application/json",
           },
