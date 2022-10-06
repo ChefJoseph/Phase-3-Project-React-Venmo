@@ -15,7 +15,7 @@ function App() {
 
   
   useEffect (()=> {
-    fetch('http://http://54.210.161.80:9292/transactions')
+    fetch('http://54.210.161.80:9292/transactions')
     .then (res => res.json())
     .then(data => setTrans(data))
   },[])
