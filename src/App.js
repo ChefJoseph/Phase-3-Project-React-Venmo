@@ -5,7 +5,7 @@ import Profile from "./components/Profile";
 import {Route, Routes} from "react-router-dom"
 import NavBar from "./components/NavBar";
 import "./index.css"
-import Login from "./components/Login";
+// import Login from "./components/Login";
 import Home from "./pages/Home";
 
 
