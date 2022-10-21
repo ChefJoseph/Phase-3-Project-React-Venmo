@@ -2,6 +2,7 @@ import React, {useState} from "react"
 
 
 function LikeButton({tran}) {
+   const [like, setLike] = useState(false)
    
     function addLike (e){
         e.preventDefault()
@@ -14,11 +15,14 @@ function LikeButton({tran}) {
           })
         })
         .then(res=> res.json())
-        .then(data => setLike(data.like))
+        .then(data => {
+            setLike(data.like)
+            console.log(data)
+        })
     
       }
 
-    const [like, setLike] = useState(false)
+    
 
     function handleClickLike() {
         setLike(!like)

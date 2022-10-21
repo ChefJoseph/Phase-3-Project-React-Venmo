@@ -14,7 +14,7 @@ function SearchBar({search, setSearch}) {
         <input
         type="text"
         id="header-search"
-        placeholder="Search by amount, description"
+        placeholder="Search by names, amounts, descriptions"
         value= {search}
         onChange = {e=>setSearch(e.target.value)}
         className="live-search-form-field"

@@ -22,14 +22,14 @@ function App() {
 
 const filteredTrans = trans.filter(tran=>       
   tran.description.toLowerCase().includes(search.toLowerCase())||
-  // tran.sender.name.toLowerCase().includes(search.toLowerCase())||
-  tran.amount.toString().includes(search.toString())
-  // tran.receiver.name.toLowerCase().includes(search.toLowerCase())
+  tran.sender.name.toLowerCase().includes(search.toLowerCase())||
+  tran.amount.toString().includes(search.toString())||
+  tran.receiver.name.toLowerCase().includes(search.toLowerCase())
 )  
   
 
 function handleFire(tran) {
-  // console.log(bill)
+  // console.log(tran)
   setTrans(trans.filter(t=> t.id !== tran.id))
 }
 

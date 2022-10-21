@@ -6,10 +6,10 @@ function Transaction ({tran, handleFire}) {
 
   const [comments, setComments] = useState("")
 
-  function handleSubmitForm (e){
-    e.preventDefault()
-    fetch('http://localhost:9292/transactions/${id}', {
-      method: "PATCH",
+  function handleSubmitForm(id){
+  
+    fetch(`http://localhost:9292/transactions/${id}`, {
+      method: "POST",
       headers: {"Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -21,16 +21,13 @@ function Transaction ({tran, handleFire}) {
     setComments("")
 
   }
-
-  function handleDelete (e) {
-    e.preventDefault()
-    fetch('http://localhost:9292/transactions/${id}', {
+  
+  function handleDelete (id) {
+    fetch(`http://localhost:9292/transactions/${id}`, {
       method: "DELETE",
       headers: {"Content-Type": "application/json",
       },
-      body: JSON.stringify({
-      
-      })
+     
     })
     .then(res=> res.json())
     .then(data=> (console.log(data)))
@@ -74,9 +71,9 @@ function Transaction ({tran, handleFire}) {
     <LikeButton tran = {tran}/>
     </div>
     <div className = "comment feed">
-      
+      {tran.comments}
     </div>
-    <form className="transaction_comments" >
+    <form className="transaction_comments" onSubmit = {handleSubmitForm}>
                     <input 
                         placeholder="Type your comment here." 
                         value={comments}
@@ -85,12 +82,13 @@ function Transaction ({tran, handleFire}) {
                         // height="10"
                         className="comment"
                     />
-      <input type="submit" value="Comment" onSubmit = {handleSubmitForm} ></input>
+      <input type="submit" value="Comment" ></input>
     </form>
       <button onClick={(e) => {
                   e.stopPropagation()
                   e.preventDefault()
                   handleFire(tran)
+                  handleDelete(tran.id)
       }}
       >
       Delete
